@@ -9,7 +9,7 @@ const products = [
   {
     id: 1,
     name: 'CASE PARA HD',
-    price: 34.99,
+    price: 34,99
 				images: ['case.jpg','case2.jpg','case3.jpg'],
     description: `
 ✔ Produto: Case para HD
@@ -23,7 +23,7 @@ const products = [
   {
     id: 2,
     name: 'CARTÃO DE MEMÓRIA',
-    price: 44.99,
+    price: 44,00,
 				images: ['cardsd.jpg','cardsd2.jpg','cardsd3.jpg'],
     description: `
 ✔ Capacidade: 64GB
@@ -36,7 +36,7 @@ const products = [
   {
     id: 3,
     name: 'HD 500GB',
-    price: 149.99,
+    price: 140,00,
 		images: ['hd.jpg','hd2.jpg','hd3.jpg'],
     description: `
 ✔ Produto: HD Toshiba 500GB
@@ -50,7 +50,7 @@ const products = [
   {
     id: 4,
     name: 'TV PANASONIC',
-    price: 440.00,
+    price: 440,00,
       images: ['tv.jpg','tv2.jpg','tv3.jpg'],
     description: `
 ✔ Produto: TV Panasonic 32” Smart Viera (Usada)
@@ -66,7 +66,7 @@ const products = [
   {
     id: 5,
     name: 'PC I5 COMPLETO',
-    price: 1700.00,
+    price: 1.700,00,
       images: ['pc.jpg','pc2.jpg','pc3.jpg'],
     description: `
 ✔ Produto: PC Completo Intel Core i5
@@ -84,7 +84,7 @@ const products = [
     {
     id: 6,
     name: 'IPTV AGS',
-    price: 20.00,
+    price: 20,00,
       images: ['iptv.jpg','iptv2.jpg','iptv3.jpg'],
     description: `
 🎬 O que você encontra na AGS IPTV:
