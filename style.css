@@ -367,3 +367,31 @@ body{
 }
 
 
+/* cards Mobile */
+@media (max-width: 768px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 cards por linha */
+    gap: 10px;
+  }
+
+  .card {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .card h3 {
+    font-size: 14px;
+  }
+
+  .card p {
+    font-size: 12px;
+  }
+
+  .card img {
+    height: 110px;
+    object-fit: cover;
+  }
+}
+
