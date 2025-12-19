@@ -9,7 +9,7 @@ const products = [
   {
     id: 1,
     name: 'CASE PARA HD',
-    price: 34,99
+    price: 34,99,
 				images: ['case.jpg','case2.jpg','case3.jpg'],
     description: `
 ✔ Produto: Case para HD
