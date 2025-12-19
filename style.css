@@ -1,0 +1,369 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{background:#071a3d;color:#fff}
+.header{display:flex;align-items:center;justify-content:space-between;padding:15px;background:#06122b}
+.logo{height:50px}
+.search input{padding:10px;border-radius:20px;border:none;width:280px}
+.cart-btn{position:relative;cursor:pointer;transition:.3s}
+.cart-btn:hover{transform:scale(1.1)}
+.cart-btn img{width:32px}
+.cart-btn span{position:absolute;top:-6px;right:-6px;background:#00ff88;color:#000;border-radius:50%;padding:2px 6px;font-size:12px}
+.banner img{width:100%;border-radius:20px;margin:20px 0}
+.catalog{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;padding:20px}
+.card{background:#0b2a5f;border-radius:20px;padding:10px;transition:.4s;cursor:pointer}
+.card:hover{transform:translateY(-8px) scale(1.02)}
+.card img{width:100%;border-radius:15px}
+.card h3{font-size:16px;margin:10px 0}
+.card button{background:#00ff88;border:none;padding:10px;width:100%;border-radius:12px;cursor:pointer}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;justify-content:center;align-items:center}
+.hidden{display:none}
+.footer{padding:20px;text-align:center;background:#06122b}
+@media(max-width:768px){.search input{width:160px}.logo{height:40px}}
+
+/* ===== animação adicionar ao carrinho ===== */
+
+@keyframes bounce{
+  0%{transform:scale(1)}
+  30%{transform:scale(1.2)}
+  60%{transform:scale(0.9)}
+  100%{transform:scale(1)}
+}
+
+.bounce{
+  animation:bounce .3s ease;
+}
+
+/* =========================================== */
+
+/* ===== ✨ Animação ao abrir modal========== */
+
+.modal .card{
+  animation: fadeUp .3s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ===== ANIMAÇÕES DE MODAIS ===== */
+.modal{
+  opacity:0;
+  transform:scale(0.9);
+  pointer-events:none;
+  transition:all .35s ease;
+}
+
+.modal.show{
+  opacity:1;
+  transform:scale(1);
+  pointer-events:auto;
+}
+
+
+/* PRODUTO */
+.product-card{
+  width:100%;
+  max-width:480px;
+}
+
+/* CARRINHO */
+.cart-card{
+  width:300%;
+  max-width:420px;
+}
+
+/* FORMULÁRIO */
+.form-card{
+  width:100%;
+  max-width:440px;
+}
+
+/* PAGAMENTO */
+.payment-card{
+  width:100%;
+  max-width:460px;
+}
+
+
+
+/* animação de clique em botões */
+button{
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(0,0,0,.3);
+}
+
+button:active{
+  transform:scale(0.96);
+}
+
+
+/* =========================================== */
+/* ===== ✨ Animação preencher campos========== */
+
+.toast{
+  position:fixed;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%) scale(0.8);
+  background:#ffb703;
+  color:#000;
+  padding:14px 22px;
+  border-radius:14px;
+  font-weight:600;
+  opacity:0;
+  transition:.4s;
+  z-index:9999;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) scale(1);
+}
+
+
+
+/* =========================================== */
+
+.form-card input{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:none;
+  margin-bottom:14px;
+  font-size:14px;
+}
+
+.form-card button{
+  margin-top:10px;
+}
+
+/* ==============ESPAÇA ENTER BOTOES ======= */
+.card button{
+  margin-top:14px;
+}
+
+.card button + button{
+  margin-top:10px;
+}
+
+/* =======DESTAQUE DIGITAR NO BUSCADOR ======= */
+.search input:focus{
+  outline:none;
+  box-shadow:0 0 0 2px #00ff88;
+}
+
+
+/* ===== MODAL COM ROLAGEM SOMENTE VERTICAL ===== */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+
+  padding:20px;
+
+  overflow-y:auto;     /* ✅ só vertical */
+  overflow-x:hidden;   /* ❌ bloqueia horizontal */
+}
+
+/* card interno */
+.modal .card{
+  width:100%;
+  max-width:420px;
+  margin:auto;
+
+  max-height:90vh;
+  overflow-y:auto;     /* rola conteúdo interno */
+  overflow-x:hidden;
+
+  word-wrap:break-word;
+}
+
+/* barra de rolagem discreta */
+.modal::-webkit-scrollbar,
+.modal .card::-webkit-scrollbar{
+  width:6px;
+}
+
+.modal::-webkit-scrollbar-thumb,
+.modal .card::-webkit-scrollbar-thumb{
+  background:#00ff88;
+  border-radius:10px;
+}
+
+
+body{
+  overflow-x:hidden;
+}
+
+
+/* ===== CSS DAS MINIATURAS=============== */
+.product-card{
+  padding:14px;
+}
+
+.main-img{
+  width:100%;
+  border-radius:16px;
+  margin-bottom:12px;
+}
+
+.thumbs{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  margin-bottom:12px;
+}
+
+.thumbs img{
+  width:60px;
+  height:60px;
+  object-fit:cover;
+  border-radius:10px;
+  cursor:pointer;
+  opacity:.6;
+  transition:.2s;
+}
+
+.thumbs img.active,
+.thumbs img:hover{
+  opacity:1;
+  outline:2px solid #00ff88;
+}
+/* ===== CSS do banner=============== */
+.banner-link{
+  display:block;
+}
+
+.banner{
+  margin:20px;
+  overflow:hidden;
+}
+
+.banner img{
+  width:100%;
+  border-radius:20px;
+  animation:fade .6s ease;
+}
+
+@keyframes fade{
+  from{opacity:0; transform:scale(1.02)}
+  to{opacity:1; transform:scale(1)}
+}
+
+/* ===== botao remove carrinho=============== */
+.remove-btn{
+  width:10px;
+  height:32px;
+  min-width:32px;
+  min-height:32px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#ff4d4d;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+
+  font-size:12px;
+  line-height:1;
+
+  transition:.2s;
+}
+
+.remove-btn:hover{
+  background:#ff1f1f;
+  transform:scale(1.1);
+}
+
+
+/* ===== miniatura DO CARRINHO ===== */
+.cart-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px;
+  background:#163a6b;
+  border-radius:16px;
+  margin-bottom:14px;
+}
+
+/* MINIATURA QUADRADA */
+.cart-thumb{
+  width:30%;
+  height:30%;
+  min-width:70px;
+  min-height:70px;
+  object-fit:cover;
+  border-radius:12px;
+  background:#fff;
+}
+
+/* TEXTO */
+.cart-info{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.cart-info strong{
+  font-size:20px;
+  line-height:1.2;
+}
+
+.cart-info span{
+  font-size:15px;
+  opacity:.85;
+}
+
+/* BOTÃO REMOVER */
+.remove-btn{
+  width:32px;
+  height:12px;
+  min-width:42px;
+  border:none;
+  border-radius:12px;
+  background:#1aff8c;
+  color:#000;
+  font-size:20px;
+  cursor:pointer;
+}
+
+
+
+/* modal celular */
+@media(max-width:480px){
+  .product-card,
+  .cart-card,
+  .form-card,
+  .payment-card{
+    max-width:100%;
+  }
+}
+/* animaçõe item indo carrinho*/
+.fly-img{
+  position: fixed;
+  z-index: 999999;
+  pointer-events: none;
+  border-radius: 12px;
+  object-fit: cover;
+  transition:
+    top 0.8s ease,
+    left 0.8s ease,
+    width 0.8s ease,
+    height 0.8s ease,
+    opacity 0.8s ease;
+}
+
+
