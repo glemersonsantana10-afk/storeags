@@ -116,7 +116,7 @@ function renderProducts(){
       <div class="card" onclick="openProduct(${p.id})">
         <img src="${p.images[0]}" onclick="event.stopPropagation(); addToCart(${p.id}, this)">
         <h3>${p.name}</h3>
-        <p>R$ ${p.price.toFixed(2)}</p>
+        <p>R$ ${formatPrice(p.price)}</p>
         <button>Ver Produto</button>
       </div>
     `;
@@ -240,7 +240,7 @@ function renderCart(){
 
       <div class="cart-info">
         <strong>${p.name}</strong>
-        <span>R$ ${p.price.toFixed(2)}</span>
+        <span>R$ ${formatPrice(p.price)}</span>
       </div>
 
       <button class="remove-btn" onclick="removeFromCart(${i})">✕</button>
@@ -257,7 +257,8 @@ function renderCart(){
         ${items}
       </div>
 
-      <h3>Total: R$ ${total.toFixed(2)}</h3>
+      <h3>Total: R$ ${formatPrice(total)}</h3>
+
 
       <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px">
         <button onclick="goToForm()">Finalizar compra</button>
@@ -343,7 +344,7 @@ function openPayment(nome, contato, cep, endereco){
   let total = 0;
   let lista = cart.map(p=>{
     total += p.price;
-    return `<li>${p.name} — R$ ${p.price.toFixed(2)}</li>`;
+    return `<li>${p.name} — R$ ${formatPrice(total)}</li>`;
   }).join('');
 
   paymentModal.innerHTML = `
@@ -354,7 +355,7 @@ function openPayment(nome, contato, cep, endereco){
         ${lista}
       </ul>
 
-      <p><strong>Total:</strong> R$ ${total.toFixed(2)}</p>
+      <p><strong>Total:</strong> R$ ${formatPrice(total)}</p>
 
       <hr style="margin:15px 0">
 
@@ -410,7 +411,7 @@ function sendWhatsApp(nome, contato, cep, endereco, total){
 🛒 Produtos:
 ${produtos}
 
-💰 Total: R$ ${total.toFixed(2)}
+💰 Total: R$ ${formatPrice(total)}
 `;
 
   window.open(
@@ -568,6 +569,12 @@ function animateToCart(imgEl){
   setTimeout(() => img.remove(), 800);
 }
 
+function formatPrice(value){
+  return value.toLocaleString('pt-BR', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+}
 
 
 

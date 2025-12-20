@@ -367,31 +367,44 @@ body{
 }
 
 
-/* cards Mobile */
-@media (max-width: 768px) {
-  .cards-container {
-    display: grid;
+/* ===============================
+   CARDS MENORES NO MOBILE
+   =============================== */
+@media (max-width: 480px){
+
+  .catalog{
     grid-template-columns: repeat(2, 1fr); /* 2 cards por linha */
-    gap: 10px;
+    gap: 12px;
+    padding: 12px;
   }
 
-  .card {
-    width: 100%;
-    padding: 10px;
+  .card{
+    padding: 8px;
+    border-radius: 14px;
+  }
+
+  .card img{
+    height: 120px;           /* imagem menor */
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .card h3{
+    font-size: 13px;
+    margin: 6px 0;
+    line-height: 1.2;
+  }
+
+  .card p{
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .card button{
+    padding: 8px;
+    font-size: 13px;
     border-radius: 10px;
   }
-
-  .card h3 {
-    font-size: 14px;
-  }
-
-  .card p {
-    font-size: 12px;
-  }
-
-  .card img {
-    height: 110px;
-    object-fit: cover;
-  }
 }
+
 
